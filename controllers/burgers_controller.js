@@ -2,7 +2,7 @@ var express = require("express");
 
 var router = express.Router();
 
-// Import the model (cat.js) to use its database functions.
+// Import the model (burger.js) to use its database functions.
 var burgers = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
@@ -16,7 +16,7 @@ router.get("/", function(req, res) {
   });
 });
 
-router.post("/api/burgers", function(req, res) {
+router.post("/api/burger", function(req, res) {
   burgers.create([
     "name", "devoured"
   ], [
@@ -27,12 +27,12 @@ router.post("/api/burgers", function(req, res) {
   });
 });
 
-router.put("/api/burgers/:id", function(req, res) {
+router.put("/api/burger/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);
 
-  cat.update({
+  burgers.update({
     sleepy: req.body.sleepy
   }, condition, function(result) {
     if (result.changedRows == 0) {
@@ -44,7 +44,7 @@ router.put("/api/burgers/:id", function(req, res) {
   });
 });
 
-router.delete("/api/burgers/:id", function(req, res) {
+router.delete("/api/burger/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   burgers.delete(condition, function(result) {
