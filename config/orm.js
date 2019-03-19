@@ -66,7 +66,7 @@ var orm = {
       if (err) {
         throw err;
       }
-x
+
       cb(result);
     });
   },
