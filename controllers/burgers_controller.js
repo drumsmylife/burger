@@ -33,7 +33,7 @@ router.put("/api/burger/:id", function(req, res) {
   console.log("condition", condition);
 
   burgers.update({
-    sleepy: req.body.sleepy
+    devoured: req.body.sleepy
   }, condition, function(result) {
     if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
